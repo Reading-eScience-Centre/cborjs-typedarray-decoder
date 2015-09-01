@@ -10,25 +10,25 @@ function getFields (tag) {
 function getType (fields) {
   if (fields.f) {
     switch (fields.ll) {
-    0: throw new Error('16-bit float arrays not supported')
-    1: return Float32Array
-    2: return Float64Array
-    3: throw new Error('128-bit float arrays not supported') 
+    case 0: throw new Error('16-bit float arrays not supported')
+    case 1: return Float32Array
+    case 2: return Float64Array
+    case 3: throw new Error('128-bit float arrays not supported') 
     }
   } else {
     if (fields.s) {
       switch (fields.ll) {
-      0: return Int8Array
-      1: return Int16Array
-      2: return Int32Array
-      3: throw new Error('64-bit signed integer arrays not supported')
+      case 0: return Int8Array
+      case 1: return Int16Array
+      case 2: return Int32Array
+      case 3: throw new Error('64-bit signed integer arrays not supported')
       }
     } else {
       switch (fields.ll) {
-      0: return fields.e ? Uint8ClampedArray : Uint8Array
-      1: return Uint16Array
-      2: return Uint32Array
-      3: throw new Error('64-bit unsigned integer arrays not supported')
+      case 0: return fields.e ? Uint8ClampedArray : Uint8Array
+      case 1: return Uint16Array
+      case 2: return Uint32Array
+      case 3: throw new Error('64-bit unsigned integer arrays not supported')
       }      
     }
   }

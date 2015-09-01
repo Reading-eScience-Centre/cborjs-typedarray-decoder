@@ -1,5 +1,5 @@
 var assert = require('assert')
-var decoder = require('/decoder')
+var decoder = require('../decoder.js')
 
 describe('decoder', function() {
   it('should perform endianness conversion', function() {

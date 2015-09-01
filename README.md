@@ -1,4 +1,4 @@
-# cborjs-typedarrays-decoder
+# cborjs-typedarray-decoder
 
 [cbor-js](https://github.com/paroga/cbor-js) decoder for typed arrays
 

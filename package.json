@@ -4,8 +4,8 @@
   "version": "0.1.0",
   "main": "decoder.js",
   "scripts": {
-    "pretest": "node_modules/.bin/standard",
-    "test": "node_modules/.bin/mocha",
+    "pretest": "standard",
+    "test": "mocha",
     "prebuild": "npm test",
     "build": "browserify decoder.js -s CBORTypedArrayDecoder -o cborjs-typedarray-decoder.js",
     "postbuild": "uglifyjs cborjs-typedarray-decoder.js -c unused=false -o cborjs-typedarray-decoder.min.js --source-map cborjs-typedarray-decoder.min.js.map",

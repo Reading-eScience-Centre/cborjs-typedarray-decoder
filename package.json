@@ -1,5 +1,12 @@
-{ "name": "cborjs-typedarrays-decoder",
+{
+  "name": "cborjs-typedarrays-decoder",
   "description": "Decodes typed arrays from CBOR",
   "version": "0.1.0",
-  "main": "decoder.js"
+  "main": "decoder.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.0"
+  }
 }

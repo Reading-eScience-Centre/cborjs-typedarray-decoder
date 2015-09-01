@@ -1,0 +1,5 @@
+{ "name": "cborjs-typedarrays-decoder",
+  "description": "Decodes typed arrays from CBOR",
+  "version": "0.1.0",
+  "main": "decoder.js"
+}

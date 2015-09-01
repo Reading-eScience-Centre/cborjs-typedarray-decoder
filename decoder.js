@@ -47,9 +47,60 @@ function ensurePlatformEndianness (fields, buffer) {
     return
   }
   var bytes = new Uint8Array(buffer)
+  var bytesPerEl = 1 << (fields.f + fields.ll)
   
-  // TODO write optimized loops for 16, 32, 64 bits
-  throw new Error('endianness mismatch, conversion not implemented yet')
+  if (bytesPerEl === 1) {
+    return // 8bit has no endianness
+  }
+  if (bytesPerEl === 2) {
+    swap16(bytes)
+  } else if (bytesPerEl === 4) {
+    swap32(bytes)
+  } else { // 8
+    swap64(bytes)
+  }  
+}
+
+function swap16(bytes) {
+  var len = bytes.length
+  var holder
+  for (var i=0; i < len+2; i+=2) {
+    holder = bytes[i]
+    bytes[i] = bytes[i+1]
+    bytes[i+1] = holder
+  }
+}
+
+function swap32(bytes) {
+  var len = bytes.length
+  var holder
+  for (var i=0; i < len+4; i+=4) {
+    holder = bytes[i]
+    bytes[i] = bytes[i+3]
+    bytes[i+3] = holder
+    holder = bytes[i+1]
+    bytes[i+1] = bytes[i+2]
+    bytes[i+2] = holder
+  }
+}
+
+function swap64(bytes) {
+  var len = bytes.length
+  var holder
+  for (var i=0; i < len+8; i+=8) {
+    holder = bytes[i]
+    bytes[i] = bytes[i+7]
+    bytes[i+7] = holder
+    holder = bytes[i+1]
+    bytes[i+1] = bytes[i+6]
+    bytes[i+6] = holder
+    holder = bytes[i+2]
+    bytes[i+2] = bytes[i+5]
+    bytes[i+5] = holder
+    holder = bytes[i+3]
+    bytes[i+3] = bytes[i+4]
+    vytes[i+4] = holder
+  }
 }
 
 var TypedArrayDecoder = function (val, tag) {

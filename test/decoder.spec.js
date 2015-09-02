@@ -28,7 +28,7 @@ describe('decoder', function() {
     var result = TypedArrayDecoder.decode(arr, tag)
     var resultArr = Array.prototype.slice.call(result)
     
-    assert.deepEqual(result, data)
+    assert.deepEqual(resultArr, data)
   })
   it('should choose the correct array type', function() {
     // TODO    

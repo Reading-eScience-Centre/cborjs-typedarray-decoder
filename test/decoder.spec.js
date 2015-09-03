@@ -31,6 +31,41 @@ describe('decoder', function() {
     assert.deepEqual(resultArr, data)
   })
   it('should choose the correct array type', function() {
-    // TODO    
+    var arr = new Uint8Array(16)
+    // null = unsupported in current browsers
+    var types = {
+      64: Uint8Array,
+      65: Uint16Array,
+      66: Uint32Array,
+      67: null, // Uint64
+      68: Uint8ClampedArray,
+      69: Uint16Array,
+      70: Uint32Array,
+      71: null, // Uint64
+      72: Int8Array,
+      73: Int16Array,
+      74: Int32Array,
+      75: null, // Int64
+      77: Int16Array,
+      78: Int32Array,
+      79: null, // Int64
+      80: null, // Float16
+      81: Float32Array,
+      82: Float64Array,
+      83: null, // Float128
+      84: null, // Float16
+      85: Float32Array,
+      86: Float64Array,
+      87: null // Float128
+    }
+    
+    for (tag in types) {
+      if (types[tag] === null) {
+        assert.throws(function() {TypedArrayDecoder.decode(arr, tag)}, Error)
+      } else {
+        var ta = TypedArrayDecoder.decode(arr, tag)
+        assert(ta instanceof types[tag])
+      }
+    }
   })
 })

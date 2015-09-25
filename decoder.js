@@ -103,7 +103,7 @@ function swap64 (bytes) {
   }
 }
 
-var TypedArrayDecoder = function (val, tag) {
+function decode (val, tag) {
   if (!(val instanceof Uint8Array)) {
     throw new Error('Expected Uint8Array, check your version of cbor-js')
   }
@@ -117,10 +117,13 @@ var TypedArrayDecoder = function (val, tag) {
   return ta
 }
 
-TypedArrayDecoder.tags = []
+var tags = []
 for (var i = 64; i <= 87; i++) {
   if (i === 76) continue // not used
-  TypedArrayDecoder.tags.push(i)
+  tags.push(i)
 }
 
-module.exports = TypedArrayDecoder
+module.exports = {
+  tags: tags,
+  decode: decode
+}

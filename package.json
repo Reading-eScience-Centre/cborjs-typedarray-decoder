@@ -8,9 +8,9 @@
     "pretest": "standard",
     "test": "mocha",
     "prebuild": "npm test",
-    "build": "browserify decoder.js -s CBORTypedArrayDecoder -o cborjs-typedarray-decoder.js",
-    "postbuild": "uglifyjs cborjs-typedarray-decoder.js -c unused=false -o cborjs-typedarray-decoder.min.js --source-map cborjs-typedarray-decoder.min.js.map",
-    "prepublish": "npm test"
+    "build": "browserify decoder.js -s CBORTypedArrayDecoder -o cborjs-typedarray-decoder.src.js",
+    "postbuild": "uglifyjs cborjs-typedarray-decoder.src.js -c unused=false -o cborjs-typedarray-decoder.min.js --source-map cborjs-typedarray-decoder.min.js.map",
+    "prepublish": "npm run build"
   },
   "standard": {
     "ignore": [

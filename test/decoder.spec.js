@@ -1,5 +1,5 @@
 var assert = require('assert')
-var TypedArrayDecoder = require('../decoder.js')
+var decode = require('../decoder.js')
 
 function isPlatformLittleEndian () {
   var buffer = new ArrayBuffer(2)
@@ -25,7 +25,7 @@ describe('decoder', function() {
     // check if the decoder can read it
     var arr = new Uint8Array(typedArr.buffer)
     var tag = little ? 66 : 70
-    var result = TypedArrayDecoder.decode(arr, tag)
+    var result = decode(arr, tag)
     var resultArr = Array.prototype.slice.call(result)
     
     assert.deepEqual(resultArr, data)
@@ -61,9 +61,9 @@ describe('decoder', function() {
     
     for (tag in types) {
       if (types[tag] === null) {
-        assert.throws(function() {TypedArrayDecoder.decode(arr, tag)}, Error)
+        assert.throws(function() {decode(arr, tag)}, Error)
       } else {
-        var ta = TypedArrayDecoder.decode(arr, tag)
+        var ta = decode(arr, tag)
         assert(ta instanceof types[tag])
       }
     }

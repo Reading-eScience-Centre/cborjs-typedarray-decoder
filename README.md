@@ -3,11 +3,21 @@
 A [cbor-js](https://github.com/paroga/cbor-js) decoder for [CBOR typed arrays](https://tools.ietf.org/html/draft-jroatch-cbor-tags-02).
 
 This is a work-in-progress and not battle-tested yet.
-It currently cannot be used in cbor-js due to an outstanding [issue](https://github.com/Reading-eScience-Centre/cborjs-typedarray-decoder/issues/1).
 
 ## Example
 
-TBD
+Include cbor-js and this plugin in your page:
+
+```html
+<script src="https://cdn.rawgit.com/paroga/cbor-js/v0.2.0/cbor.js"></script>
+<script src="https://cdn.jsdelivr.net/cborjs-typedarray-decoder/0.1/cborjs-typedarray-decoder.min.js"></script>
+```
+
+Then register the decoder and you're ready to go:
+```js
+CBOR.registerDecoder(CBORTypedArrayDecoder)
+CBOR.decode(...)
+```
 
 ## How does it work?
 

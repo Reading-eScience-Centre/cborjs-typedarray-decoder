@@ -117,13 +117,10 @@ function decode (val, tag) {
   return ta
 }
 
-var tags = []
+decode.tags = []
 for (var i = 64; i <= 87; i++) {
   if (i === 76) continue // not used
-  tags.push(i)
+  decode.tags.push(i)
 }
 
-module.exports = {
-  tags: tags,
-  decode: decode
-}
+module.exports = decode

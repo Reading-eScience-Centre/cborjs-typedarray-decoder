@@ -2,7 +2,7 @@
   "name": "cborjs-typedarray-decoder",
   "description": "Decodes typed arrays from CBOR",
   "license" : "BSD-3-Clause",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "decoder.js",
   "scripts": {
     "pretest": "standard",

@@ -1,0 +1,22 @@
+{
+  "name": "cborjs-typedarray-decoder",
+  "description": "Decodes typed arrays from CBOR",
+  "main": "decoder.js",
+  "authors": [
+    "Maik Riechert <maik.riechert@arcor.de>"
+  ],
+  "license": "BSD-3-Clause",
+  "keywords": [
+    "cbor"
+  ],
+  "homepage": "https://github.com/Reading-eScience-Centre/cborjs-typedarray-decoder",
+  "moduleType": [
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ]
+}
